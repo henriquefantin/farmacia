@@ -12,4 +12,8 @@ class Produtos extends Model
     function fornecedor(){
         return $this->belongsTo('App\Fornecedor', 'id_fornecedor', 'id');
     }
+
+    function vendas(){
+        return $this->belongsToMany('App\Venda', 'produtos_vendas', 'id_produto', 'id_venda')->withPivot('quantidade', 'subtotal')->withTimestamps();
+    }
 }
