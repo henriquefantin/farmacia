@@ -48,7 +48,7 @@
 
       <div class="form-group mx-sm-3 mb-2">
         <label class="sr-only">Celular</label>
-        <input type="numer" class="form-control" placeholder="celular" name="numero_celular">
+        <input type="number" class="form-control" placeholder="celular" name="numero_celular">
       </div>
 
        <div class="form-group mx-sm-3 mb-2">
