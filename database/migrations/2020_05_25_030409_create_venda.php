@@ -18,7 +18,7 @@ class CreateVenda extends Migration
             $table->unsignedBigInteger('id_cliente');
             $table->unsignedBigInteger('id_funcionario');
             $table->string('descricao_venda', 255);
-            $table->decimal('valor_venda', 20, 2);
+            $table->decimal('valor_venda', 20, 2)->nullable();
 
             ##Relacionamento Venda-Cliente
             $table->foreign('id_cliente')->references('id')->on('cliente');

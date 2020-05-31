@@ -3,38 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Produtos;
+use App\Fornecedores;
 use Auth;
 
 class ProdutoController extends Controller
 {
     function telaCadastro(){
-         if(session()->has("login")){
-            return view("cadastro_produto");
-            }
-        return redirect()->route('tela_login');
+        return view("cadastro_produto");   
     }
 
-    function adicionar(Request $req){
-        if(session()->has("login")){
-            $descricao = $req->input('descricao');
-            $nome = $req->input('nome');
-            $preco = $req->input('preco');
-            $unidade_venda = $req->input('unidade_venda');
+    function adicionar(Request $req){       
+        $id_fornecedor = $req->input('id_fornecedor');
 
-            $produto = new Produto();
-            $produto->descricao = $descricao;
-            $produto->nome = $nome;
-            $produto->preco = $preco;
-            $produto->unidade_venda = $unidade_venda;
+        $descricao = $req->input('descricao');
+        $nome = $req->input('nome');
+        $valor_unitario = $req->input('valor_unitario');
+        $unidade_venda = $req->input('unidade_venda');
 
-            if ($produto->save()){
-                $msg = "$nome cadastrado com sucesso.";
-            }else{
-                $msg = "Produto não foi cadastrado.";
-            }
+        $produto = new Produtos();
+        $produto->descricao = $descricao;
+        $produto->nome = $nome;
+        $produto->valor_unitario = $valor_unitario;
+        $produto->unidade_venda = $unidade_venda;
 
-            return view("retorno", [ "mensagem" => $msg ]);
+        if ($produto->save()){
+            $msg = "$nome cadastrado com sucesso.";
+        }else{
+            $msg = "Produto não foi cadastrado.";
         }
-        return redirect()->route('tela_login');
+
+        return view("retorno", [ "mensagem" => $msg ]);
+    }
+
+    function listar(){
+        $produtos = Produtos::all();
+        $fornecedor = Fornecedores::all();
+        return view('listar_produtos', ['produtos' => $produtos,'fornecedor' => $fornecedor]);
     }
 }

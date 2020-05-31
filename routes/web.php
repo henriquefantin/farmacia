@@ -33,19 +33,19 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/funcionario/listar', 'FuncionarioController@listar')->name('listar_funcionarios');
 
 	/* Vendas */
-	Route::get('/venda/cadastro', 'VendaController@telaCadastro')->name('venda_cadastro');
+	Route::get('/venda/cadastro', 'VendaController@telaCadastroVendas')->name('cadastro_venda');
 	Route::post('/venda/adicionar', 'VendaController@adicionar')->name('venda_add');
 	Route::get('/venda/{id}/itens/novo', 'VendaController@telaAdicionarItem')->name('vendas_item_novo');
 	Route::post('/venda/{id}/itens/adicionar', 'VendaController@adicionarItem')->name('vendas_item_add');
 	Route::get('/venda/{id}/itens/remover/{id_pivot}', 'VendaController@excluirItem')->name('vendas_item_delete');
 	Route::get('/venda/{id}/itens', 'VendaController@itensVenda')->name('vendas_itens');
-	Route::get('/venda/listar', 'VendaController@listar')->name('venda_listar');
+	Route::get('/venda/listar', 'VendaController@listar')->name('listar_vendas');
 	Route::get('/venda/usuario/{id}', 'VendaController@vendasPorUsuario')->name('vendas_usuario');
 	
 	/* Produtos */
-	Route::get('/produto/cadastro', 'ProdutoController@telaCadastro')->name('produto_cadastro');
-	Route::post('/produto/adicionar', 'ProdutoController@adicionar')->name('produto_add');
-	Route::get('/produto/listar', 'ProdutoController@listar')->name('produtos_listar');
+	Route::get('/produto/cadastro', 'ProdutoController@telaCadastro')->name('cadastro_produto');
+	Route::get('/produto/adicionar', 'ProdutoController@adicionar')->name('produto_add');
+	Route::get('/produto/listar', 'ProdutoController@listar')->name('listar_produtos');
 
 	Route::middleware(['admin'])->group(function(){
 		/* Funcionario */

@@ -1,32 +1,30 @@
 @extends('layouts.template')
+
 @section('conteudo')
-	<style type="text/css">
-	table{
-        max-width: 50%;
-  			width: 100%;
- 			  margin-bottom : 50%;
- 			  table-layout: fixed;
-        text-align: center;
-            }
-            td{
-            	width: 50%;
-            }
-            body {
-                background-color: #646467;
-}
-    </style>
-
-<table class="table table-striped" >
-
-  <thead>
-    <th>Fornecedores:</th>
-    <th> {{ $fornecedor->nome }}</th>
-    <th> {{ $fornecedor->id }}</th>
-  
-  </thead>
-  <tbody>
-
-</tbody>
-</table>
+  <div class="jumbotron bg-dark text-white">
+    <h1 class="display-4">Lista de Funcionarios</h1>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th> 
+        <th>NOME</th>
+        <th>CIDADE</th>      
+        <th>DATA</th>
+        <th>OPERACOES</th>
+      </tr>
+    </thead>
+    <tbody class="thead-light">
+      @foreach ($funcionario as $f)
+      <tr>
+        <td>{{ $f->id }}</td>
+        <td>{{ $f->nome }}</td>
+        <td>{{ $f->cidade}}</td>
+        <td>{{ $f->created_at}}</td>
+      </tr>
+      @endForeach
+    </tbody>
+  </table>
+<a class="btn btn-success" href="{{ route('cadastro_funcionario') }}">Cadastrar Nova</a>
 @endsection
-    
+

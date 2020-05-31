@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Vendas;
+use App\Clientes;
+use App\Funcionarios;
 use Auth;
+
 class VendaController extends Controller
 {
     function telaCadastroVendas(){
-        
-            $usuarios = Usuario::all();
-            return view("venda_cliente", ["usuarios" => $usuarios]);
-         
+        $cliente = Clientes::all();
+        $funcionario = Funcionarios::all();
+        return view("venda_cliente", ["cliente" => $cliente, "funcionario" => $funcionario]);
     }
 
     function adicionar(Request $req){
-      
-            $id_cliente = $req->input('id_cliente');
-    	#$descricao = $req->input('descricao');
-    	#$valor = $req->input('valor');
-    	
-    	$venda = new Venda();
-        $venda->valor = 0;# $valor;
+        $id_cliente = $req->input('id_cliente');
+        $id_funcionario = $req->input('id_funcionario');
+    	$venda = new Vendas();
+        $venda->valor_venda = 0;
         $venda->id_cliente = $id_cliente;
     	
     	if ($venda->save()){
@@ -28,35 +28,31 @@ class VendaController extends Controller
         } else {
             $msg = "Venda não foi cadastrada.";
         }
-
         return redirect()->route('vendas_item_novo', ['id' => $venda->id]);
-    	//return view("retorno_venda", [ "mensagem" => $msg ]);
         
     }
 
-    function listar(){
-      
-        	$vendas = Venda::all();
-            return view('lista_vendas_geral', [ 'venda' => $vendas ]);
-      
+    function listar(){      
+        	$vendas = Vendas::all();
+            return view('listar_vendas', [ 'venda' => $vendas ]);
     }
 
     function itensVenda($id){
-        $venda = Venda::find($id);
+        $venda = Vendas::find($id);
         return view('lista_itens_venda', ['venda' => $venda]);
     }
 
     function telaAdicionarItem($id){
-        $venda = Venda::find($id);
-        $produtos = Produto::all();
-        return view('tela_cadastro_itens', ['venda' => $venda, 'produtos' => $produtos]);
+        $venda = Vendas::find($id);
+        $produtos = Produtos::all();
+        return view('itens_venda', ['venda' => $venda, 'produtos' => $produtos]);
     }
 
     function adicionarItem(Request $req, $id){
         $id_produto = $req->input('id_produto');
         $quantidade = $req->input('quantidade');
-        $produto = Produto::find($id_produto);
-        $venda = Venda::find($id);
+        $produto = Produtos::find($id_produto);
+        $venda = Vendas::find($id);
         $subtotal = $produto->preco * $quantidade;
 
         $colunas_pivot = [
@@ -64,14 +60,14 @@ class VendaController extends Controller
             'subtotal' => $subtotal
         ];
         $venda->produtos()->attach($produto->id, $colunas_pivot);
-        $venda->valor += $subtotal;
+        $venda->valor_venda += $subtotal;
         $venda->save();
 
         return redirect()->route('vendas_item_novo', ['id' => $venda->id]);
     }
 
     function excluirItem($id, $idProduto){
-        $venda = Venda::find($id);
+        $venda = Vendas::find($id);
         $subtotal = 0;
         foreach ($venda->produtos as $vp) {
             if($vp->id == $idProduto){
@@ -79,7 +75,7 @@ class VendaController extends Controller
                 break;
             }
         }
-        $venda->valor = $venda->valor - $
+        $venda->valor_venda = $venda->valor_venda - $
         $venda->save();
         $venda->produtos()->datach($id_produto);
 
