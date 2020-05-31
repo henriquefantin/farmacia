@@ -20,6 +20,7 @@ class CreateItemVenda extends Migration
             $table->decimal('quantidade', 20, 2);
             $table->decimal('valor_total', 20, 2);
 
+            ##Relacionamento Venda-Produto
             $table->foreign('id_venda')->references('id')->on('venda');
             $table->foreign('id_produto')->references('id')->on('produto');
 
