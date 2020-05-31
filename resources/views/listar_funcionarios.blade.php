@@ -43,4 +43,16 @@
 </table>
 <a class="btn btn-primary" href="{{route('cadastro_funcionario')}}">Cadastrar novo</a>
 
+<<<<<<< HEAD
+=======
+<script>
+  function excluir(id){
+    if (confirm('Deseja excluir: ' + id + '?')){
+      //processo para excluir
+      location.href = '/funcionario/excluir/' + id;
+    }
+  }
+  //TesteFuncionamento
+</script>
+>>>>>>> 2384695750fc7c8050f31dc22218ce634621a6b4
 @endsection

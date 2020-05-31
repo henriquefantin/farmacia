@@ -21,6 +21,7 @@ class CreateProduto extends Migration
             $table->decimal('valor_unitario', 20, 2);
             $table->string('unidade_venda', 20);
             
+            ##Relacionamento
             $table->foreign('id_fornecedor')->references('id')->on('fornecedor');
             $table->timestamps();
         });
