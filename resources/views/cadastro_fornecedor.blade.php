@@ -1,5 +1,5 @@
  @extends('layouts.template')
-  @section('conteudo')
+@section('conteudo')
 
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -8,27 +8,32 @@
   <h1>Cadastro do fornecedor</h1>
 
 
-	<form method="GET" action="{{ route('') }}">
+	<form method="GET" action="{{ route('fornecedor_add') }}">
 		@csrf
 
-    <style type="text/css">
   
-   body {
-     background-color: #646467;
-  }
+  
   </style>
 
 		<form class="form-inline">
  		<div class="form-group mx-sm-3 mb-2">
-   			<label class="sr-only">Nome</label>
-   			<input type="text" class="form-control" placeholder="Nome" name="nome">
+   			<label class="sr-only">Razão Social</label>
+   			<input type="text" class="form-control" placeholder="Razão Social" name="rasao_social">
   		</div>
-
+    <div class="form-group mx-sm-3 mb-2">
+        <label class="sr-only">Nome Fantasia</label>
+        <input type="text" class="form-control" placeholder="Nome Fantasia" name="nome_fantasia">
+      </div>
   	
 		<div class="form-group mx-sm-3 mb-2">
    			<label class="sr-only">CNPJ</label>
-   			<input type="text" class="form-control" placeholder="RG" name="rg">
+   			<input type="text" class="form-control" placeholder="CNPJ" name="cnpj">
   		</div>
+
+    <div class="form-group mx-sm-3 mb-2">
+        <label class="sr-only">Inscrição Estadual</label>
+        <input type="text" class="form-control" placeholder="Inscrição Estadual" name="inscricao_estadual">
+      </div>
 
       <div class="form-group mx-sm-3 mb-2">
         <label class="sr-only">Rua</label>
@@ -37,7 +42,7 @@
 
       <div class="form-group mx-sm-3 mb-2">
         <label class="sr-only">Numero</label>
-        <input type="text" class="form-control" placeholder="Numero" name="numero_casa">
+        <input type="text" class="form-control" placeholder="Numero" name="numero_logradouro">
       </div>
 		
 		<div class="form-group mx-sm-3 mb-2">
@@ -88,13 +93,16 @@
   		<option>TO</option>
   		</select>
 		
-		<button type="submit" name="Enviar"  class="btn btn-primary">Enviar</button>
+		<button type="submit" name="Enviar"  class="btn btn-success">Enviar</button>
 
       <div class="form-group mx-sm-3 mb-2">
         <label class="sr-only">Celular</label>
         <input type="text" class="form-control" placeholder="celular" name="numero_celular">
       </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label class="sr-only">Email</label>
+        <input type="text" class="form-control" placeholder="Email" name="email">
+      </div>
 
 	</form>
-
   @endsection

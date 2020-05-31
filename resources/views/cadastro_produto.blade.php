@@ -8,9 +8,9 @@
   <form method="get" action="{{ route('produto_add') }}">
     @csrf
      <div class="form-row">
-        <select name="id_cliente" class="form-control">
-           @foreach ($cliente as $c)
-            <option value="{{ $c->id }}">{{ $c->nome }}</option>
+        <select name="id_fornecedor" class="form-control">
+           @foreach ($fornecedor as $f)
+            <option value="{{ $f->id }}">{{ $f->rasao_social }}</option>
           @endforeach
        </select>
         <div class="form-group pr-3 pl-3 col-md-12">

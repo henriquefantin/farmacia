@@ -5,7 +5,7 @@
 <form method="post" action="{{ route('vendas_item_add', ['id' => $venda->id]) }}">
 	@csrf
 	<select name="id_produto" class="form-control">
-		@foreach ($produtos as $p)
+		@foreach ($produto as $p)
 		<option value="{{ $p->id }}">{{ $p->nome }}</option>
 		@endforeach
 	</select>
@@ -27,7 +27,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($venda->produtos as $p)
+		@foreach($venda->produto as $p)
 		<tr>
 			<td>{{ $p->pivot->id }}</td>
 			<td>{{ $p->nome }}</td>

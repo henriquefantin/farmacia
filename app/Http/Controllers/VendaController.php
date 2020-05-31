@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Vendas;
 use App\Clientes;
+use App\Produtos;
 use App\Funcionarios;
 use Auth;
 
@@ -22,6 +23,7 @@ class VendaController extends Controller
     	$venda = new Vendas();
         $venda->valor_venda = 0;
         $venda->id_cliente = $id_cliente;
+        $venda->id_funcionario = $id_funcionario;
     	
     	if ($venda->save()){
             $msg = "Venda adicionada com sucesso.";
@@ -44,8 +46,8 @@ class VendaController extends Controller
 
     function telaAdicionarItem($id){
         $venda = Vendas::find($id);
-        $produtos = Produtos::all();
-        return view('itens_venda', ['venda' => $venda, 'produtos' => $produtos]);
+        $produto = Produtos::all();
+        return view('itens_venda', ['venda' => $venda, 'produto' => $produto]);
     }
 
     function adicionarItem(Request $req, $id){
@@ -59,7 +61,7 @@ class VendaController extends Controller
             'quantidade' => $quantidade,
             'subtotal' => $subtotal
         ];
-        $venda->produtos()->attach($produto->id, $colunas_pivot);
+        $venda->produto()->attach($produto->id, $colunas_pivot);
         $venda->valor_venda += $subtotal;
         $venda->save();
 
@@ -69,7 +71,7 @@ class VendaController extends Controller
     function excluirItem($id, $idProduto){
         $venda = Vendas::find($id);
         $subtotal = 0;
-        foreach ($venda->produtos as $vp) {
+        foreach ($venda->produto as $vp) {
             if($vp->id == $idProduto){
                 $subtotal = $vp->pivot->subtotal;
                 break;
@@ -77,7 +79,7 @@ class VendaController extends Controller
         }
         $venda->valor_venda = $venda->valor_venda - $
         $venda->save();
-        $venda->produtos()->datach($id_produto);
+        $venda->produto()->datach($id_produto);
 
         return redirect()->rout('vendas_item_novo', ['id' => $id]);
     }

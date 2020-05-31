@@ -11,6 +11,6 @@ class Fornecedores extends Model
     protected $primaryKey = 'id';
 
     function produtos(){
-        return $this->hasMany('App\Produto', 'id_fornecedor', 'id');
+        return $this->hasMany('App\Produtos', 'id_fornecedor', 'id');
     }
 }

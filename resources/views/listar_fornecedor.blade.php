@@ -2,7 +2,7 @@
 
 @section('conteudo')
   <div class="jumbotron bg-dark text-white">
-    <h1 class="display-4">Lista de Funcionarios</h1>
+    <h1 class="display-4">Lista de Fornecedor</h1>
   </div>
   <table class="table">
     <thead class="thead-dark">
@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody class="thead-light">
-      @foreach ($funcionario as $f)
+      @foreach ($fornecedor as $f)
       <tr>
         <td>{{ $f->id }}</td>
         <td>{{ $f->nome }}</td>
@@ -25,6 +25,6 @@
       @endForeach
     </tbody>
   </table>
-<a class="btn btn-success" href="{{ route('cadastro_funcionario') }}">Cadastrar Nova</a>
+<a class="btn btn-success" href="{{ route('cadastro_fornecedor') }}">Cadastrar Novo</a>
 @endsection
 

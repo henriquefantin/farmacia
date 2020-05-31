@@ -10,12 +10,12 @@ use Auth;
 class ProdutoController extends Controller
 {
     function telaCadastro(){
-        return view("cadastro_produto");   
+        $fornecedor = Fornecedores::all();
+        return view("cadastro_produto", ["fornecedor" => $fornecedor]);   
     }
 
     function adicionar(Request $req){       
         $id_fornecedor = $req->input('id_fornecedor');
-
         $descricao = $req->input('descricao');
         $nome = $req->input('nome');
         $valor_unitario = $req->input('valor_unitario');
@@ -26,6 +26,7 @@ class ProdutoController extends Controller
         $produto->nome = $nome;
         $produto->valor_unitario = $valor_unitario;
         $produto->unidade_venda = $unidade_venda;
+        $produto->id_fornecedor = $id_fornecedor;
 
         if ($produto->save()){
             $msg = "$nome cadastrado com sucesso.";

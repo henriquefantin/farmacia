@@ -22,6 +22,9 @@
               <a class="nav-link" href="{{ route('listar_cliente') }}">Clientes <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
+              <a class="nav-link" href="{{ route('listar_fornecedor') }}">Fornecedores <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
               <a class="nav-link" href="{{ route('listar_vendas') }}">Vendas <span class="sr-only">(current)</span></a>
             </li>
              <li class="nav-item active">
