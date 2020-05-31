@@ -59,7 +59,7 @@ class FuncionarioController extends Controller
 
     function excluir($id){
         
-        $funcionario = Funcionario::find($id);
+        $funcionario = funcionarios::find($id);
 
         foreach ($funcionario->vendas as $v){
             $v->delete();
@@ -115,7 +115,7 @@ class FuncionarioController extends Controller
     }
 
     function listar(){    
-            $funcionario = Funcionario::all();
-            return view("lista", [ "us" => $funcionario ]);
+            $funcionarios = Funcionarios::all();
+            return view("listar_funcionarios", [ "funcionarios" => $funcionarios ]);
     }    
 }

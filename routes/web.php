@@ -26,7 +26,9 @@ Route::middleware(['auth'])->group(function(){
 	/* Funcionario */
 	Route::get('/funcionario/adicionar', 'FuncionarioController@adicionar')->name('funcionario_add');
 	Route::get('/funcionario/cadastro', 'FuncionarioController@telaCadastro')->name('cadastro_funcionario');
-	
+	Route::get('/funcionario/listar', 'FuncionarioController@listar')->name('listar_funcionarios');
+	Route::get('/funcionario/excluir/{id}', 'FuncionarioController@excluir')->name('funcionario_delete');
+
 	Route::middleware(['admin'])->group(function(){
 		/* Cliente */
 		
