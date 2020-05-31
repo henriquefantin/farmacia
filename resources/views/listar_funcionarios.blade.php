@@ -51,5 +51,6 @@
       location.href = '/funcionario/excluir/' + id;
     }
   }
+  //TesteFuncionamento
 </script>
 @endsection
