@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layouts.template')
 @section('conteudo')
 	<style type="text/css">
 	table{

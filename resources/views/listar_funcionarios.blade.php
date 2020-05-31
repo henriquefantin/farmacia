@@ -11,6 +11,7 @@
         <th>NOME</th>
         <th>CIDADE</th>      
         <th>DATA</th>
+        <th>OPERACOES</th>
       </tr>
     </thead>
     <tbody class="thead-light">
