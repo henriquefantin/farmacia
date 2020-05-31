@@ -1,58 +1,28 @@
-
 @extends('layouts.template')
 
 @section('conteudo')
-
-<style type="text/css">
-  
-   body {
-
-  background-color: #646467;
-
-}
-</style>
-
-<table class="table table-striped" >
-  <thead>
-    <th>Lista de funcionarios</th>
-          <th></th>
-          <th></th>
-          <th></th>
-    <tr>
-
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Login</th>
-      <th>Operações</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($funcionarios as $f)
-    <tr>
-      <td>{{ $f->id }}</td>
-      <td>{{ $f->nome }}</td>
-      <td>{{ $f->login }}</td>
-     <td>
-      <a class="btn btn-warning" href="{{ route('#', ['id' => $f->id]) }} ">Alterar</a>  
-      <a class="btn btn-success" href="{{ route('#', ['id' => $f->id]) }}">Vendas</a> 
-     </td>
-    </tr>
-    @endforeach
-  </tbody>
-
-</table>
-<a class="btn btn-primary" href="{{route('cadastro_funcionario')}}">Cadastrar novo</a>
-
-<<<<<<< HEAD
-=======
-<script>
-  function excluir(id){
-    if (confirm('Deseja excluir: ' + id + '?')){
-      //processo para excluir
-      location.href = '/funcionario/excluir/' + id;
-    }
-  }
-  //TesteFuncionamento
-</script>
->>>>>>> 2384695750fc7c8050f31dc22218ce634621a6b4
+  <div class="jumbotron bg-dark text-white">
+    <h1 class="display-4">Lista de Funcionarios</h1>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th> 
+        <th>NOME</th>
+        <th>CIDADE</th>      
+        <th>DATA</th>
+      </tr>
+    </thead>
+    <tbody class="thead-light">
+      @foreach ($funcionario as $f)
+      <tr>
+        <td>{{ $f->id }}</td>
+        <td>{{ $f->nome }}</td>
+        <td>{{ $f->cidade}}</td>
+        <td>{{ $f->created_at}}</td>
+      </tr>
+      @endForeach
+    </tbody>
+  </table>
+<a class="btn btn-success" href="{{ route('cadastro_funcionario') }}">Cadastrar Nova</a>
 @endsection

@@ -115,7 +115,7 @@ class FuncionarioController extends Controller
     }
 
     function listar(){    
-            $funcionarios = Funcionarios::all();
-            return view("listar_funcionarios", [ "funcionarios" => $funcionarios ]);
+            $funcionario = Funcionarios::all();
+            return view("listar_funcionarios", [ "funcionario" => $funcionario ]);
     }    
 }
