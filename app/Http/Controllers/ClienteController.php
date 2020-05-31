@@ -13,13 +13,13 @@ class ClienteController extends Controller
     }
 
     function telaAlteracao($id){
-        $cliente = Cliente::find($id);
+        $cliente = Clientes::find($id);
         return view("tela_alterar_cliente", [ "u" => $cliente ]);
     }
 
     function alterar(Request $req, $id){
        
-        $cliente = Cliente::find($id);
+        $cliente = Clientes::find($id);
 
         $nome = $req->input('nome');
         $cpf = $req->input('cpf');
@@ -59,7 +59,7 @@ class ClienteController extends Controller
 
     function excluir($id){
         
-        $cliente = Cliente::find($id);
+        $cliente = Clientes::find($id);
 
         foreach ($cliente->vendas as $v){
             $v->delete();
@@ -115,7 +115,7 @@ class ClienteController extends Controller
     }
 
     function listar(){    
-            $cliente = Cliente::all();
-            return view("lista", [ "us" => $cliente ]);
+            $cliente = Clientes::all();
+            return view("listar_cliente", [ "us" => $cliente ]);
     }    
 }
