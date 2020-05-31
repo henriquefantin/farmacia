@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Funcionario;
+use App\Funcionarios;
 use Auth;
 
 class FuncionarioController extends Controller
 {
 	function telaCadastro(){
-        return view("");
+        return view("cadastro_funcionario");
     }
 
     function telaAlteracao($id){
@@ -90,7 +90,7 @@ class FuncionarioController extends Controller
         $email = $req->input('email');
         $estado_civil = $req->input('estado_civil');
     
-    	$funcionario = new Funcionario();
+    	$funcionario = new Funcionarios();
     	$funcionario->nome = $nome;
         $funcionario->cpf = $cpf;
         $funcionario->rg = $rg;

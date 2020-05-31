@@ -22,6 +22,11 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/cliente/adicionar', 'ClienteController@adicionar')->name('cliente_add');
 	Route::get('/cliente/cadastro', 'ClienteController@telaCadastro')->name('cadastro_cliente');
 
+
+	/* Funcionario */
+	Route::get('/funcionario/adicionar', 'FuncionarioController@adicionar')->name('funcionario_add');
+	Route::get('/funcionario/cadastro', 'FuncionarioController@telaCadastro')->name('cadastro_funcionario');
+	
 	Route::middleware(['admin'])->group(function(){
 		/* Cliente */
 		

@@ -6,7 +6,7 @@
   <h1 class="display-4">Cadastro de funcionario</h1>
 </div>
 
-  <form method="GET" action="{{ route('') }}">
+  <form method="GET" action="{{ route('funcionario_add') }}">
     @csrf
 
     <form class="form-inline">
@@ -45,6 +45,11 @@
        <div class="form-group mx-sm-3 mb-2">
         <label class="sr-only">RG</label>
         <input type="number" class="form-control" placeholder="rg" name="rg">
+      </div>
+
+      <div class="form-group mx-sm-3 mb-2">
+        <label class="sr-only">CPF</label>
+        <input type="number" class="form-control" placeholder="CPF" name="cpf">
       </div>
 
       <div class="form-group mx-sm-3 mb-2">

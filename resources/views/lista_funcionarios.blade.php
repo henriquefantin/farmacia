@@ -1,5 +1,5 @@
 
-@extends('template')
+@extends('layouts.template')
 
 @section('conteudo')
 
