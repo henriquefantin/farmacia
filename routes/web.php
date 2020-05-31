@@ -21,25 +21,26 @@ Route::middleware(['auth'])->group(function(){
 	/* Cliente */
 	Route::get('/cliente/adicionar', 'ClienteController@adicionar')->name('cliente_add');
 	Route::get('/cliente/cadastro', 'ClienteController@telaCadastro')->name('cadastro_cliente');
-	Route::get('/cliente/listar', 'ClienteController@listar')->name('lista');
+	Route::get('/cliente/listar', 'ClienteController@listar')->name('listar_cliente');
 
 
 	/* Funcionario */
-	Route::get('/funcionario/adicionar', 'FuncionarioController@adicionar')->name('funcionario_add');
-	Route::get('/funcionario/cadastro', 'FuncionarioController@telaCadastro')->name('cadastro_funcionario');
+	Route::get('/funcionario/adicionar', 'FuncionarioController@adicionar')->name('funcionario_add');	
 	Route::get('/funcionario/listar', 'FuncionarioController@listar')->name('listar_funcionarios');
-	Route::get('/funcionario/excluir/{id}', 'FuncionarioController@excluir')->name('funcionario_delete');
 
 	Route::middleware(['admin'])->group(function(){
-		/* Cliente */
-		
-
-		Route::get('/home', 'HomeController@index')->name('home');
+		/* Funcionario */
+		Route::get('/funcionario/cadastro', 'FuncionarioController@telaCadastro')->name('cadastro_funcionario');	
+		Route::get('/funcionario/excluir/{id}', 'FuncionarioController@excluir')->name('funcionario_delete');
 		
 	});
 
 });
 
+/* Login */
+Route::get('/login', 'AppController@tela_login')->name('login');
+Route::get('/logout', 'AppController@logout')->name('logout');
+Route::post('/logar', 'AppController@login')->name('logar');
 
 Auth::routes();
 

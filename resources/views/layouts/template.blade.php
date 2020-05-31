@@ -16,16 +16,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="{{ route('cliente_cadastro') }}">Cadastro <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ route('listar_funcionarios') }}">Funcionarios <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{{ route('listar') }}">Clientes <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ route('listar_cliente') }}">Clientes <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{{ route('listar_vendas_geral') }}">Vendas <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Vendas <span class="sr-only">(current)</span></a>
             </li>
              <li class="nav-item active">
-              <a class="nav-link" href="{{ route('produto_cadastro')}}">Produtos <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Produtos <span class="sr-only">(current)</span></a>
             </li>
              <li class="nav-item active">
               <a class="nav-link" href="{{ route('logout') }}">Logout</a>

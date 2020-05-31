@@ -24,5 +24,5 @@
       @endForeach
     </tbody>
   </table>
-<a class="btn btn-success" href="{{ route('cadastro_funcionario') }}">Cadastrar Nova</a>
+<a class="btn btn-success" href="{{ route('cadastro_cliente') }}">Cadastrar Nova</a>
 @endsection
