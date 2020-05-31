@@ -20,6 +20,7 @@ class CreateVenda extends Migration
             $table->string('descricao_venda', 255);
             $table->decimal('valor_venda', 20, 2);
 
+            ##Relacionamento Venda-Cliente
             $table->foreign('id_cliente')->references('id')->on('cliente');
             $table->foreign('id_funcionario')->references('id')->on('funcionario');
             $table->timestamps();
