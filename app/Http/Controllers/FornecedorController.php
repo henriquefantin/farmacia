@@ -17,7 +17,7 @@ class FornecedorController extends Controller
 
     function alterar(Request $req, $id){
        
-        $cliente = Clientes::find($id);
+        $fornecedor = Fornecedores::find($id);
 
         $nome = $req->input('nome');
         $cpf = $req->input('cpf');
@@ -32,23 +32,23 @@ class FornecedorController extends Controller
         $email = $req->input('email');
         $estado_civil = $req->input('estado_civil');
 
-        $cliente->nome = $nome;
-        $cliente->cpf = $cpf;
-        $cliente->rg = $rg;
-        $cliente->rua = $rua;
-        $cliente->numero_casa = $numero_casa;
-        $cliente->cidade = $cidade;
-        $cliente->bairro = $bairro;
-        $cliente->cep = $cep;
-        $cliente->estado = $estado;
-        $cliente->numero_celular = $numero_celular;
-        $cliente->email = $email;
-        $cliente->estado_civil = $estado_civil;
+        $fornecedor->nome = $nome;
+        $fornecedor->cpf = $cpf;
+        $fornecedor->rg = $rg;
+        $fornecedor->rua = $rua;
+        $fornecedor->numero_casa = $numero_casa;
+        $fornecedor->cidade = $cidade;
+        $fornecedor->bairro = $bairro;
+        $fornecedor->cep = $cep;
+        $fornecedor->estado = $estado;
+        $fornecedor->numero_celular = $numero_celular;
+        $fornecedor->email = $email;
+        $fornecedor->estado_civil = $estado_civil;
 
-        if ($cliente->save()){
-            $msg = "Cliente $nome alterado com sucesso.";
+        if ($fornecedor->save()){
+            $msg = "Fornecedor $nome alterado com sucesso.";
         } else {
-            $msg = "Cliente não foi alterado.";
+            $msg = "Fornecedor não foi alterado.";
         }
 
         return view("retorno", [ "mensagem" => $msg]);
@@ -57,16 +57,16 @@ class FornecedorController extends Controller
 
     function excluir($id){
         
-        $cliente = Clientes::find($id);
+        $fornecedor = Fornecedores::find($id);
 
-        foreach ($cliente->vendas as $v){
+        foreach ($fornecedor->vendas as $v){
             $v->delete();
         }
 
-        if ($cliente->delete()){
-            $msg = "Cliente $id excluído com sucesso.";
+        if ($fornecedor->delete()){
+            $msg = "Fornecedor $id excluído com sucesso.";
         } else {
-            $msg = "Cliente não foi excluído.";
+            $msg = "Fornecedor não foi excluído.";
         }
 
         return view("retorno", [ "mensagem" => $msg]);
@@ -88,24 +88,24 @@ class FornecedorController extends Controller
         $email = $req->input('email');
         $estado_civil = $req->input('estado_civil');
     
-    	$cliente = new Clientes();
-    	$cliente->nome = $nome;
-        $cliente->cpf = $cpf;
-        $cliente->rg = $rg;
-        $cliente->rua = $rua;
-        $cliente->numero_casa = $numero_casa;
-        $cliente->cidade = $cidade;
-        $cliente->bairro = $bairro;
-        $cliente->cep = $cep;
-        $cliente->estado = $estado;
-        $cliente->numero_celular = $numero_celular;
-        $cliente->email = $email;
-        $cliente->estado_civil = $estado_civil;
+    	$fornecedor = new Clientes();
+    	$fornecedor->nome = $nome;
+        $fornecedor->cpf = $cpf;
+        $fornecedor->rg = $rg;
+        $fornecedor->rua = $rua;
+        $fornecedor->numero_casa = $numero_casa;
+        $fornecedor->cidade = $cidade;
+        $fornecedor->bairro = $bairro;
+        $fornecedor->cep = $cep;
+        $fornecedor->estado = $estado;
+        $fornecedor->numero_celular = $numero_celular;
+        $fornecedor->email = $email;
+        $fornecedor->estado_civil = $estado_civil;
     	
-    	if ($cliente->save()){
-    		$msg = "Usuário $nome cadastrado com sucesso.";
+    	if ($fornecedor->save()){
+    		$msg = "Fornecedor $nome cadastrado com sucesso.";
     	}else{
-    		$msg = "Usuário não foi cadastrado.";
+    		$msg = "Fornecedor não foi cadastrado.";
     	}
 
     	return view("retorno", [ "mensagem" => $msg ]);
@@ -113,7 +113,7 @@ class FornecedorController extends Controller
     }
 
     function listar(){    
-            $cliente = Clientes::all();
-            return view("listar_cliente", [ "us" => $cliente ]);
+            $cliente = Fornecedores::all();
+            return view("listar_fornecedor", [ "us" => $fornecedor ]);
     }  
 }
