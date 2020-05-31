@@ -34,7 +34,6 @@
       <td>{{ $f->login }}</td>
      <td>
       <a class="btn btn-warning" href="{{ route('#', ['id' => $f->id]) }} ">Alterar</a>  
-      <a class="btn btn-danger" href="#" onclick="excluir({{ $f->id }})"> Excluir</a>
       <a class="btn btn-success" href="{{ route('#', ['id' => $f->id]) }}">Vendas</a> 
      </td>
     </tr>
@@ -44,12 +43,4 @@
 </table>
 <a class="btn btn-primary" href="{{route('cadastro_funcionario')}}">Cadastrar novo</a>
 
-<script>
-  function excluir(id){
-    if (confirm('Deseja excluir: ' + id + '?')){
-      //processo para excluir
-      location.href = '/funcionario/excluir/' + id;
-    }
-  }
-</script>
 @endsection

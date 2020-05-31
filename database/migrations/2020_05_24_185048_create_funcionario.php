@@ -27,8 +27,6 @@ class CreateFuncionario extends Migration
             $table->bigInteger('numero_celular');
             $table->string('email', 200);
             $table->string('estado_civil', 20);
-            $table->string('usuario', 15);
-            $table->string('senha', 15);
             $table->timestamps();
         });
     }

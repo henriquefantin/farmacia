@@ -16,16 +16,6 @@
       </div>
 
       <div class="form-group mx-sm-3 mb-2">
-        <label class="sr-only">Usuario</label>
-        <input type="text" class="form-control" placeholder="Usuarios" name="usuario">
-      </div>
-    
-     <div class="form-group mx-sm-3 mb-2">
-        <label class="sr-only">Senha</label>
-        <input type="password" class="form-control" placeholder="Senha" name="senha">
-      </div>
-      
-       <div class="form-group mx-sm-3 mb-2">
         <label class="sr-only">Email</label>
         <input type="text" class="form-control" placeholder="email" name="email">
       </div>
