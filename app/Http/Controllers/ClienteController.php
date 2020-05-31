@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
+use App\Clientes;
 use Auth;
 
 class ClienteController extends Controller
 {
     function telaCadastro(){
-        return view("");
+        return view("cadastro_cliente");
     }
 
     function telaAlteracao($id){
@@ -90,7 +90,7 @@ class ClienteController extends Controller
         $email = $req->input('email');
         $estado_civil = $req->input('estado_civil');
     
-    	$cliente = new Funcionario();
+    	$cliente = new Clientes();
     	$cliente->nome = $nome;
         $cliente->cpf = $cpf;
         $cliente->rg = $rg;

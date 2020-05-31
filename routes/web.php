@@ -18,11 +18,13 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function(){
-
-	
+	/* Cliente */
+	Route::get('/cliente/adicionar', 'ClienteController@adicionar')->name('cliente_add');
+	Route::get('/cliente/cadastro', 'ClienteController@telaCadastro')->name('cadastro_cliente');
 
 	Route::middleware(['admin'])->group(function(){
-
+		/* Cliente */
+		
 
 		Route::get('/home', 'HomeController@index')->name('home');
 		

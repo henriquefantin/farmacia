@@ -1,5 +1,6 @@
- @extends('template')
-  @section('conteudo')
+ @extends('layouts.template')
+ 
+ @section('conteudo')
 
 <div class="jumbotron bg-texto escuro-branco">
   <h1 class="display-4">Cadastro de funcionario</h1>

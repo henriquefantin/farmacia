@@ -1,4 +1,4 @@
- @extends('template')
+ @extends('layouts.template')
   @section('conteudo')
 
 
@@ -8,14 +8,14 @@
   <h1>Cadastro</h1>
 
 
-	<form method="GET" action="{{ route('') }}">
+	<form method="GET" action="{{ route('cliente_add') }}">
 		@csrf
 
     <style type="text/css">
   
-   body {
-     background-color: #646467;
-  }
+    body {
+       background-color: #646467;
+    }
   </style>
 
 		<form class="form-inline">
@@ -24,6 +24,10 @@
    			<input type="text" class="form-control" placeholder="Nome" name="nome">
   		</div>
 
+      <div class="form-group mx-sm-3 mb-2">
+        <label class="sr-only">CPF</label>
+        <input type="text" class="form-control" placeholder="CPF" name="cpf">
+      </div>
   	
 		<div class="form-group mx-sm-3 mb-2">
    			<label class="sr-only">rg</label>
