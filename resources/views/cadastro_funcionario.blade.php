@@ -2,7 +2,7 @@
  
  @section('conteudo')
 
-<div class="jumbotron bg-texto escuro-branco">
+<div class="jumbotron bg-dark text-white">
   <h1 class="display-4">Cadastro de funcionario</h1>
 </div>
 

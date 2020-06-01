@@ -1,26 +1,26 @@
 @extends('layouts.template')
 
 @section('conteudo')
-<h1>Lista de produtos</h1>
+<div class="jumbotron bg-dark text-white">
+    <h1 class="display-4">Lista de Produtos</h1>
+  </div>
 <table class="table table-striped">
-	<thead>
+	<thead class="thead-dark">
 		<tr>
-			<th>Imagem</th>
 			<th>ID</th>
 			<th>Nome</th>
 			<th>Preço</th>
 			<th>Operações</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="thead-light">
 		@foreach ($produtos as $p)
 		<tr>
-			<td><img src="{{ asset($p->imagem) }}" width="64"></td>
 			<td>{{ $p->id }}</td>
 			<td>{{ $p->nome }}</td>
-			<td>{{ $p->preco }}</td>
+			<td>{{ $p->valor_unitario }}</td>
 			<td>
-				<a class="btn btn-danger" href="#" onclick="exclui({{$p->id}})">Excluir</a>
+				<a class="btn btn-danger" href="cliente_delete" onclick="exclui({{$p->id}})">Excluir</a>
 			</td>
 		</tr>
 		@endforeach

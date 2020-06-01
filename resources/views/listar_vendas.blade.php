@@ -8,16 +8,16 @@
     <thead class="thead-dark">
       <tr>
         <th>ID</th> 
-        <th>Descrição</th>
-        <th>Valor</th>        
+        <th>Valor da Venda</th>
+        <th>Data da Compra</th>        
       </tr>
     </thead>
     <tbody class="thead-light">
       @foreach ($venda as $v)
       <tr>
-        <td>{{ $v->id }}</td>
-        <td>{{ $v->descricao }}</td>
-        <td>{{ $v->valor}}</td>
+        <td>{{ $v->id}}</td>
+        <td>{{ $v->valor_venda}}</td>
+        <td>{{ $v->created_at}}</td>
       </tr>
       @endForeach
     </tbody>

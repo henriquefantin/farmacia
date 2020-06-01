@@ -8,11 +8,14 @@
   <form method="get" action="{{ route('produto_add') }}">
     @csrf
      <div class="form-row">
-        <select name="id_fornecedor" class="form-control">
+        <div class="orm-group mb-2 pr-3 pl-3 col-md-12">
+          <select name="id_fornecedor" class="form-control">
            @foreach ($fornecedor as $f)
             <option value="{{ $f->id }}">{{ $f->rasao_social }}</option>
-          @endforeach
-       </select>
+           @endforeach
+          </select>  
+        </div>
+        
         <div class="form-group pr-3 pl-3 col-md-12">
             <label for="nome1">Descrição</label>
           <input type="text" name="descricao" class="form-control">

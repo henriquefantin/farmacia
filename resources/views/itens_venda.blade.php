@@ -21,7 +21,7 @@
 			<th>Nome</th>
 			<th>Quantidade</th>
 			<th>Valor unitário</th>
-			<th>Subtotal</th>
+			<th>Total</th>
 			<th>Data</th>
 			<th>Operações</th>
 		</tr>
@@ -32,8 +32,8 @@
 			<td>{{ $p->pivot->id }}</td>
 			<td>{{ $p->nome }}</td>
 			<td>{{ $p->pivot->quantidade }}</td>
-			<td>{{ $p->preco }}</td>
-			<td>{{ $p->pivot->subtotal }}</td>
+			<td>{{ $p->valor_unitario }}</td>
+			<td>{{ $p->pivot->valor_total }}</td>
 			<td>{{ $p->pivot->created_at }}</td>
 			<td><a href="#" class="btn btn-danger" onclick="exclui({{
 				$p->pivot->id }})">Remover</a></td>
@@ -44,14 +44,14 @@
 			<td></td>
 			<td></td>
 			<td><b>Total:</b></td>
-			<td><b>{{ $venda->valor }}</b></td>
+			<td><b>{{ $venda->valor_venda }}</b></td>
 			<td></td>
 			<td></td>
 		</tr>
 	</tbody>
 </table>
 
-<a class="btn btn-primary" href="{{ route('venda_listar') }}">Fechar venda</a>
+<a class="btn btn-primary" href="{{ route('listar_vendas') }}">Fechar venda</a>
 
 <script>
 	function exclui(id){

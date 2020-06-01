@@ -22,16 +22,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/cliente/adicionar', 'ClienteController@adicionar')->name('cliente_add');
 	Route::get('/cliente/cadastro', 'ClienteController@telaCadastro')->name('cadastro_cliente');
 	Route::get('/cliente/listar', 'ClienteController@listar')->name('listar_cliente');
-
-	/* Fornecedores */
-	Route::get('/fornecedor/adicionar', 'FornecedorController@adicionar')->name('fornecedor_add');
-	Route::get('/fornecedor/cadastro', 'FornecedorController@telaCadastro')->name('cadastro_fornecedor');
-	Route::get('/fornecedor/listar', 'FornecedorController@listar')->name('listar_fornecedor');
-
-	/* Funcionario */
-	Route::get('/funcionario/adicionar', 'FuncionarioController@adicionar')->name('funcionario_add');	
-	Route::get('/funcionario/listar', 'FuncionarioController@listar')->name('listar_funcionarios');
-
+	Route::get('/cliente/excluir/{id}', 'ClienteController@excluir')->name('cliente_delete');
+	
 	/* Vendas */
 	Route::get('/venda/cadastro', 'VendaController@telaCadastroVendas')->name('cadastro_venda');
 	Route::post('/venda/adicionar', 'VendaController@adicionar')->name('venda_add');
@@ -41,17 +33,24 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/venda/{id}/itens', 'VendaController@itensVenda')->name('vendas_itens');
 	Route::get('/venda/listar', 'VendaController@listar')->name('listar_vendas');
 	Route::get('/venda/usuario/{id}', 'VendaController@vendasPorUsuario')->name('vendas_usuario');
-	
-	/* Produtos */
-	Route::get('/produto/cadastro', 'ProdutoController@telaCadastro')->name('cadastro_produto');
-	Route::get('/produto/adicionar', 'ProdutoController@adicionar')->name('produto_add');
-	Route::get('/produto/listar', 'ProdutoController@listar')->name('listar_produtos');
 
 	Route::middleware(['admin'])->group(function(){
 		/* Funcionario */
 		Route::get('/funcionario/cadastro', 'FuncionarioController@telaCadastro')->name('cadastro_funcionario');	
 		Route::get('/funcionario/excluir/{id}', 'FuncionarioController@excluir')->name('funcionario_delete');
-		
+		Route::get('/funcionario/adicionar', 'FuncionarioController@adicionar')->name('funcionario_add');	
+		Route::get('/funcionario/listar', 'FuncionarioController@listar')->name('listar_funcionarios');
+
+		/* Produtos */
+		Route::get('/produto/cadastro', 'ProdutoController@telaCadastro')->name('cadastro_produto');
+		Route::get('/produto/adicionar', 'ProdutoController@adicionar')->name('produto_add');
+		Route::get('/produto/listar', 'ProdutoController@listar')->name('listar_produtos');	
+
+		/* Fornecedores */
+		Route::get('/fornecedor/adicionar', 'FornecedorController@adicionar')->name('fornecedor_add');
+		Route::get('/fornecedor/cadastro', 'FornecedorController@telaCadastro')->name('cadastro_fornecedor');
+		Route::get('/fornecedor/listar', 'FornecedorController@listar')->name('listar_fornecedor');
+
 	});
 
 });

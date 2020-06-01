@@ -35,18 +35,20 @@ class VendaController extends Controller
     }
 
     function listar(){      
-        	$vendas = Vendas::all();
-            return view('listar_vendas', [ 'venda' => $vendas ]);
+        	$venda = Vendas::all();
+            return view('listar_vendas', [ 'venda' => $venda]);
     }
 
-    function itensVenda($id){
-        $venda = Vendas::find($id);
-        return view('lista_itens_venda', ['venda' => $venda]);
+    function itensVenda($idV, $idC){
+        $venda = Vendas::find($idV);
+        $cliente = Clientes::find();
+        return view('listar_vendas', ['venda' => $venda, 'cliente' => $cliente]);
     }
 
     function telaAdicionarItem($id){
         $venda = Vendas::find($id);
         $produto = Produtos::all();
+
         return view('itens_venda', ['venda' => $venda, 'produto' => $produto]);
     }
 
@@ -55,14 +57,14 @@ class VendaController extends Controller
         $quantidade = $req->input('quantidade');
         $produto = Produtos::find($id_produto);
         $venda = Vendas::find($id);
-        $subtotal = $produto->preco * $quantidade;
+        $valor_total = $produto->valor_unitario * $quantidade;
 
         $colunas_pivot = [
             'quantidade' => $quantidade,
-            'subtotal' => $subtotal
+            'valor_total' => $valor_total
         ];
         $venda->produto()->attach($produto->id, $colunas_pivot);
-        $venda->valor_venda += $subtotal;
+        $venda->valor_venda += $valor_total;
         $venda->save();
 
         return redirect()->route('vendas_item_novo', ['id' => $venda->id]);
@@ -70,10 +72,10 @@ class VendaController extends Controller
 
     function excluirItem($id, $idProduto){
         $venda = Vendas::find($id);
-        $subtotal = 0;
+        $valor_total = 0;
         foreach ($venda->produto as $vp) {
             if($vp->id == $idProduto){
-                $subtotal = $vp->pivot->subtotal;
+                $valor_total = $vp->pivot->valor_total;
                 break;
             }
         }
