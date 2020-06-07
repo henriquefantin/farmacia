@@ -50,6 +50,8 @@ Route::middleware(['auth'])->group(function(){
 		Route::get('/fornecedor/adicionar', 'FornecedorController@adicionar')->name('fornecedor_add');
 		Route::get('/fornecedor/cadastro', 'FornecedorController@telaCadastro')->name('cadastro_fornecedor');
 		Route::get('/fornecedor/listar', 'FornecedorController@listar')->name('listar_fornecedor');
+		Route::get('/fornecedor/alteracao/{id}', 'FornecedorController@telaAlteracao')->name('fornecedor_alteracao');
+		Route::post('/fornecedor/alterar/{id}', 'FornecedorController@alterar')->name('fornecedor_alterar');
 
 	});
 

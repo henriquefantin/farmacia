@@ -18,13 +18,18 @@
       @foreach ($fornecedor as $f)
       <tr>
         <td>{{ $f->id }}</td>
-        <td>{{ $f->nome }}</td>
+        <td>{{ $f->rasao_social }}</td>
         <td>{{ $f->cidade}}</td>
         <td>{{ $f->created_at}}</td>
+        <td>
+        <a class="btn btn-warning" href="{{ route('fornecedor_alteracao', [ 'id' => $f->id ]) }}">Alterar</a>
+      </td>
       </tr>
       @endForeach
     </tbody>
   </table>
 <a class="btn btn-success" href="{{ route('cadastro_fornecedor') }}">Cadastrar Novo</a>
+
+
 @endsection
 

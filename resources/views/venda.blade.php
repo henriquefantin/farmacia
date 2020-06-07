@@ -4,20 +4,9 @@
 
 
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
-
-  <h1>Venda</h1>
-
-  <form method="GET" action="{{ route('') }}">
-    @csrf
-  <style type="text/css">
-  
-   body {
-  background-color: #646467;
-  }
-  </style>
+ <div class="jumbotron bg-dark text-white">
+  <h1 class="display-4">Venda</h1>
+</div>
   
   <table class="table table-striped" >
 

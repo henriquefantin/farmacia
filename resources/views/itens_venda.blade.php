@@ -1,19 +1,32 @@
 @extends('layouts.template')
 
 @section('conteudo')
-<h1>Cadastro de itens de Venda #{{ $venda->id }}</h1>
+
+<div class="jumbotron bg-dark text-white">
+	<h1>Cadastro de itens de Venda #{{ $venda->id }}</h1>
+</div>
+
 <form method="post" action="{{ route('vendas_item_add', ['id' => $venda->id]) }}">
 	@csrf
+	<div class="form-group pr-3 pl-3 col-md-12">
 	<select name="id_produto" class="form-control">
 		@foreach ($produto as $p)
 		<option value="{{ $p->id }}">{{ $p->nome }}</option>
 		@endforeach
 	</select>
+</div>
+<div class="form-group pr-3 pl-3 col-md-12">
 	<input type="number" name="quantidade" class="form-control" min="0" step="0.01">
+</div>
+<div class="form-group pr-3 pl-3 col-md-12">
 	<input type="submit" class="btn btn-success" value="Cadastrar">
+</div>
 </form>
 
+<div class="jumbotron bg-dark text-white">
 <h2 class="mt-4">Itens adicionados até o momento</h2>
+</div>
+
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -51,7 +64,7 @@
 	</tbody>
 </table>
 
-<a class="btn btn-primary" href="{{ route('listar_vendas') }}">Fechar venda</a>
+<a class="btn btn-warning" href="{{ route('listar_vendas') }}">Fechar venda</a>
 
 <script>
 	function exclui(id){
