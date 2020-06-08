@@ -11,6 +11,7 @@
         <th>NOME</th>
         <th>CIDADE</th>      
         <th>DATA</th>
+        <th>OPCOES</th>
       </tr>
     </thead>
     <tbody class="thead-light">
@@ -20,6 +21,9 @@
         <td>{{ $c->nome }}</td>
         <td>{{ $c->cidade}}</td>
         <td>{{ $c->created_at}}</td>
+        <td>
+        <a class="btn btn-warning" href="{{ route('cliente_alteracao', [ 'id' => $c->id ]) }}">Alterar</a>
+      </td>
       </tr>
       @endForeach
     </tbody>

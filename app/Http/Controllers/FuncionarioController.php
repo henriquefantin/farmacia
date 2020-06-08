@@ -13,15 +13,15 @@ class FuncionarioController extends Controller
     }
 
     function telaAlteracao($id){
-        $funcionario = Funcionario::find($id);
-        return view("tela_alterar_funcionario", [ "u" => $funcionario ]);
+        $funcionario = Funcionarios::find($id);
+        return view("tela_alterar_funcionario", [ "f" => $funcionario ]);
     }
 
     function alterar(Request $req, $id){
        
-        $funcionario = Funcionario::find($id);
+        $funcionario = Funcionarios::find($id);
 
-        $nome = $req->input('nome');
+        $$nome = $req->input('nome');
         $cpf = $req->input('cpf');
         $rg = $req->input('rg');
         $rua = $req->input('rua');
@@ -29,7 +29,7 @@ class FuncionarioController extends Controller
         $cidade = $req->input('cidade');
         $bairro = $req->input('bairro');
         $cep = $req->input('cep');
-    	$estado = $req->input('estado');
+        $estado = $req->input('estado');
         $numero_celular = $req->input('numero_celular');
         $email = $req->input('email');
         $estado_civil = $req->input('estado_civil');

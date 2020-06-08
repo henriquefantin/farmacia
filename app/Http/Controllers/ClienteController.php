@@ -14,7 +14,7 @@ class ClienteController extends Controller
 
     function telaAlteracao($id){
         $cliente = Clientes::find($id);
-        return view("tela_alterar_cliente", [ "u" => $cliente ]);
+        return view("tela_alterar_cliente", [ "c" => $cliente ]);
     }
 
     function alterar(Request $req, $id){

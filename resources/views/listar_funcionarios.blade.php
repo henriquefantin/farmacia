@@ -21,6 +21,9 @@
         <td>{{ $f->nome }}</td>
         <td>{{ $f->cidade}}</td>
         <td>{{ $f->created_at}}</td>
+        <td>
+        <a class="btn btn-warning" href="{{ route('funcionario_alteracao', [ 'id' => $f->id ]) }}">Alterar</a>
+      </td>
       </tr>
       @endForeach
     </tbody>

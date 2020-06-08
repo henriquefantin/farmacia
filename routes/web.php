@@ -23,6 +23,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/cliente/cadastro', 'ClienteController@telaCadastro')->name('cadastro_cliente');
 	Route::get('/cliente/listar', 'ClienteController@listar')->name('listar_cliente');
 	Route::get('/cliente/excluir/{id}', 'ClienteController@excluir')->name('cliente_delete');
+	Route::get('/cliente/alteracao/{id}', 'ClienteController@telaAlteracao')->name('cliente_alteracao');
+	Route::post('/cliente/alterar/{id}', 'ClienteController@alterar')->name('cliente_alterar');
 	
 	/* Vendas */
 	Route::get('/venda/cadastro', 'VendaController@telaCadastroVendas')->name('cadastro_venda');
@@ -40,6 +42,8 @@ Route::middleware(['auth'])->group(function(){
 		Route::get('/funcionario/excluir/{id}', 'FuncionarioController@excluir')->name('funcionario_delete');
 		Route::get('/funcionario/adicionar', 'FuncionarioController@adicionar')->name('funcionario_add');	
 		Route::get('/funcionario/listar', 'FuncionarioController@listar')->name('listar_funcionarios');
+		Route::get('/funcionario/alteracao/{id}', 'FuncionarioController@telaAlteracao')->name('funcionario_alteracao');
+		Route::post('/funcionario/alterar/{id}', 'FuncionarioController@alterar')->name('funcionario_alterar');
 
 		/* Produtos */
 		Route::get('/produto/cadastro', 'ProdutoController@telaCadastro')->name('cadastro_produto');
