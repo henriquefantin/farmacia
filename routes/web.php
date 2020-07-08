@@ -37,6 +37,9 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/venda/usuario/{id}', 'VendaController@vendasPorUsuario')->name('vendas_usuario');
 
 	Route::middleware(['admin'])->group(function(){
+
+		Route::get('/dashboard', 'AppController@dashboard')->name('dashboard');
+
 		/* Funcionario */
 		Route::get('/funcionario/cadastro', 'FuncionarioController@telaCadastro')->name('cadastro_funcionario');	
 		Route::get('/funcionario/excluir/{id}', 'FuncionarioController@excluir')->name('funcionario_delete');

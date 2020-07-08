@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Venda;
 use Auth;
 
 class AppController extends Controller
@@ -63,5 +64,10 @@ class AppController extends Controller
     function logout(){
        Auth::logout();
         return redirect()->route('login');
+    }
+    function dashboard(){
+        $vendas_hora = Venda::selectRaw('HOUR(created_at') as hora, ROUND(AVG(valor), 2) as media')->groupByRaw('HOUR(create_at)')->orderByRaw('1 ASC')->get();
+
+    return view('dashboard', ['vendas_hora' => $vendas_hora]);
     }
 }
